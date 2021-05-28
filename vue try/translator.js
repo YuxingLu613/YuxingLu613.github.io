@@ -52,8 +52,11 @@ var translator = new Vue( {
             sign=md5("20210527000844094"+that.textarea+"1435660288osnzIH44YDlLl8UpI6_L")
             console.log(sign)
             quary="https://fanyi-api.baidu.com/api/trans/vip/translate?q="+that.textarea+"&from="+that.from+"&to="+that.to+"&appid=20210527000844094&salt=1435660288&sign="+sign
-            
-            axios.get(quary).then(
+            axios.get(quary,{headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+              "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+            }}).then(
                 function(response){
                     console.log(response);
                     that.result=response.data
