@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="//unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="joke.css">
+    <link rel="stylesheet" type="text/css" href="calculator.css">
+    <link rel="stylesheet" type="text/css" href="translator.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+    <title>Widgets</title>
+</head>
+
+<body class="all">
+    <script src="//unpkg.com/element-ui@2.15.1/lib/index.js"></script>
+    <div>
+        <div class="title">Widgets</div>
+        <div class="content">
+            <div class="card1" id="joke">
+                <div class="joke">
+                    <p>{{joke}}</p>
+                </div>
+                <input class="getjoke" type="button" value="Random一个笑话吧" @click="getjoke">
+            </div>
+            <div class="card2" id="calculator">
+                <div class="calpanel">
+                    <form>
+                        <input class="textview" v-model="input">
+                    </form>
+                    <table>
+                        <tr>
+                            <td><input type="button" class="button" value="1" v-on:click="insert(1)"></td>
+                            <td><input type="button" class="button" value="2" v-on:click="insert(2)"></td>
+                            <td><input type="button" class="button" value="3" v-on:click="insert(3)"></td>
+                            <td><input type="button" class="button" value="+" v-on:click="insert('+')"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="button" value="4" v-on:click="insert(4)"></td>
+                            <td><input type="button" class="button" value="5" v-on:click="insert(5)"></td>
+                            <td><input type="button" class="button" value="6" v-on:click="insert(6)"></td>
+                            <td><input type="button" class="button" value="-" v-on:click="insert('-')"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="button" value="7" v-on:click="insert(7)"></td>
+                            <td><input type="button" class="button" value="8" v-on:click="insert(8)"></td>
+                            <td><input type="button" class="button" value="9" v-on:click="insert(9)"></td>
+                            <td><input type="button" class="button" value="*" v-on:click="insert('*')"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="button" value="0" v-on:click="insert(0)"></td>
+                            <td><input type="button" class="button" value="C" v-on:click="clear"></td>
+                            <td><input type="button" class="button" value="=" v-on:click="equal"></td>
+                            <td><input type="button" class="button" value="/" v-on:click="insert('/')"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="card3" id="translator">
+                <div>
+                    <el-select v-model="from" placeholder="请选择" class="selectbox" @change="getfrom">
+                        <el-option v-for="item in languages" :key="item.value" :label="item.label" :value="item.value">
+                        </el-option>
+                    </el-select>
+                    <span>&nbsp;to&nbsp;</span>
+                    <el-select v-model="to" placeholder="请选择" class="selectbox" @change="getto">
+                        <el-option v-for="item in languages" :key="item.value" :label="item.label" :value="item.value"
+                            :disabled="item.disabled">
+                        </el-option>
+                    </el-select>
+                    <span class="starttrans"><el-button type="primary" @click="translate">开始翻译</el-button></span>
+                </div>
+                <div class="text">
+                    <el-input type="textarea" :rows="3" placeholder="请输入内容" v-model="textarea" clearable:true>
+                    </el-input>
+                </div>
+                <div class="text">
+                    <el-input type="textarea" :rows="3" placeholder="待返回结果" v-model="result" clearable:true>
+                    </el-input>
+                </div>
+            </div>
+            <div class="card4">b</div>
+
+        </div>
+    </div>
+    <script src="./js/joke.js"></script>
+    <script src="calculate.js"></script>
+    <script src="translator.js"></script>
+    <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

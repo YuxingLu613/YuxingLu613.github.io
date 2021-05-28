@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter</title>
+</head>
+<body>
+    <div  id="count_machine">
+        <button v-on:click="minus">-</button>
+        <span>{{count}}</span>
+        <button v-on:click="plus">+</button>
+        <button v-on:click="change">切换显示</button>
+        <button v-on:mouseover="change">鼠标悬停</button>
+        <img v-show="count>=5" src="https://cn.vuejs.org/images/logo.png" alt=""></img>
+        <img v-show="status" src="https://cn.vuejs.org/images/logo.png" alt=""></img>
+    </div>
+    <div id="app-7">
+        <ol>
+          <!--
+            现在我们为每个 todo-item 提供 todo 对象
+            todo 对象是变量，即其内容可以是动态的。
+            我们也需要为每个组件提供一个“key”，稍后再
+            作详细解释。
+          -->
+          <todo-item
+            v-for="item in groceryList"
+            v-bind:todo="item"
+            v-bind:key="item.id"
+          ></todo-item>
+        </ol>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script> count=new Vue({
+        el:"#count_machine",
+        data:{
+            count:1,
+            status:"false"
+        },
+        methods:{
+            plus:function(){
+            if(this.count<10){
+                this.count+=1;
+                console.log(this.count);
+            }else{
+                alert("exceed");
+            }
+            },
+            minus:function(){
+            if(this.count>0){
+                this.count-=1;
+                console.log(this.count);
+            }else{
+                alert("too small")
+            }},
+            change:function(){
+                this.status=!this.status;
+            }
+        }
+    })
+    </script>
+    <script>
+Vue.component('todo-item', {
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+})
+
+var app7 = new Vue({
+  el: '#app-7',
+  data: {
+    groceryList: [
+      { id: 0, text: '蔬菜' },
+      { id: 1, text: '奶酪' },
+      { id: 2, text: '随便其它什么人吃的东西' }
+    ]
+  }
+})
+    </script>
+</body>

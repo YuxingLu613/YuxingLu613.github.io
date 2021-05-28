@@ -1,0 +1,21 @@
+.calpanel{
+    height: 40vh;
+    width: 25vw;
+    justify-content: center;    
+    padding-left: 2vw;
+}
+.textview{
+    margin-left: 0.2vw;
+    width: 20.2vw;
+    height: 5vh;
+    margin-right: 2vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-size:larger;
+}
+.button{
+    width: 5vw;
+    height: 6vh;
+    font-size: larger;
+}
+@import url("//unpkg.com/element-ui@2.15.1/lib/theme-chalk/index.css");
