@@ -1,0 +1,92 @@
+.all{
+    display:  block;
+    background-color: #fafafa;
+}
+.content{
+    display:grid;
+}
+.title{
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    font-size: xx-large;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+}
+.card1{
+    grid-column: 1/2;
+    grid-row: 1;
+    width: 25vw;
+    height: 40vh;
+    border-radius: 3vh;
+    background-color:rgb(245, 245, 245);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    opacity: 0.8;
+}
+.card2{
+    grid-column: 2/3;
+    grid-row: 1;
+    width: 25vw;
+    height: 40vh;
+    border-radius: 3vh;
+    background-color:rgb(245, 245, 245);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    opacity: 0.8;
+}
+.card3{
+    grid-column: 3;
+    grid-row: 1;
+    width: 25vw;
+    height: 40vh;
+    border-radius: 3vh;
+    background-color:rgb(245, 245, 245);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    opacity: 0.8;
+}
+
+.card4{
+    grid-column: 1/2;
+    grid-row: 2;
+    width: 25vw;
+    height: 40vh;
+    border-radius: 3vh;
+    background-color:rgb(245, 245, 245);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    opacity: 0.8;
+}
+.joke{height: 27vh;
+}
+
+.getjoke{
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 2vh;
+    font-size: large;
+    margin: auto;
+    background-color: aliceblue;
+}
