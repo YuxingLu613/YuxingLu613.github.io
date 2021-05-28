@@ -15,13 +15,14 @@ var calculator=new Vue({
             var opstack=[];
             var op=["+","-","*","/"];
             var tmp=0;
+            console.log(priority["+"]);
             for(i=0;i<that.input.length;i++){
                 console.log(that.input[i]);
                 if(!op.includes(that.input[i])){
                     tmp=tmp*10+parseInt(that.input[i]);
                 }
                 else{
-                    if(opstack.length==0||priority[opstack[-1]>=that.input[i]]){
+                    if(opstack.length==0||priority[opstack[opstack.length-1]]<=priority[that.input[i]]){
                     equation.push(tmp);
                     tmp=0;
                     opstack.push(that.input[i]);
@@ -29,7 +30,7 @@ var calculator=new Vue({
                     else{
                         equation.push(tmp);
                         tmp=0;
-                        while(priority[opstack[-1]<=that.input[i]]){
+                        while(opstack.length>0 && priority[opstack[opstack.length-1]]>priority[that.input[i]]){
                             a=equation.pop()
                             b=equation.pop()
                             c=opstack.pop()
@@ -40,12 +41,13 @@ var calculator=new Vue({
                                 equation.push(b/a);
                             }
                         }   
-                        opstack.push(that.input[-1]);
+                        opstack.push(that.input[i]);
                     }
                 }
             }
             equation.push(tmp);
             console.log(equation);
+            console.log(opstack);
             while(opstack.length>0){
                 a=equation.pop();
                 b=equation.pop();
@@ -63,7 +65,7 @@ var calculator=new Vue({
                     equation.push(b-a);
                 }
             }
-            that.input=equation.pop();
+            that.input=equation.pop().toString();
             },
         insert:function(a){
             var that=this;
