@@ -27,9 +27,9 @@
             </div>
             <div class="card2" id="calculator">
                 <div class="calpanel">
-                    <form>
-                        <input class="textview" v-model="input">
-                    </form>
+                    
+                        <input class="textview" v-model="input" @keyup.enter="equal">
+                    
                     <table>
                         <tr>
                             <td><input type="button" class="button" value="1" v-on:click="insert(1)"></td>
@@ -81,7 +81,7 @@
                     </el-input>
                 </div>
             </div>
-            <div class="card4">b</div>
+            <div class="card4">To Be Continued</div>
 
         </div>
     </div>
